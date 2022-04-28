@@ -12,5 +12,24 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let newTutorials = tutorials.map(function (element) 
+  {
+    let lowerCaseSplitTutorials = element.split(' ');
+    let newLowerCaseSplitTutorials = lowerCaseSplitTutorials.map(function (element)
+    {
+      let splittedWord = element.split(''); //return splitted words
+      let firstLetters = element.toUpperCase().charAt(0); //return first letters capitalized
+      splittedWord.shift();
+      let join = splittedWord.join('');
+      let madeUpWord = [firstLetters + join];
+      return madeUpWord;
+    })
+    let joinWords = newLowerCaseSplitTutorials.join(' ');
+    return joinWords;
+    //return newLowerCaseSplitTutorials;
+  })
+  return newTutorials;
 }
+
+
+console.log(titleCased());
